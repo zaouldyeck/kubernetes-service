@@ -105,6 +105,11 @@ dev-describe-deployment:
 dev-describe-sales:
 	kubectl describe pod --namespace=$(NAMESPACE) -l app=$(SALES_APP)
 
+# ==============================================================================
+# Metrics and Tracing
+
+metrics:
+	export TERM=xterm-256color && expvarmon -ports="localhost:3010" -vars="build,requests,goroutines,errors,panics,mem:memstats.HeapAlloc,mem:memstats.HeapSys,mem:memstats.Sys"
 
 # ==================================================================
 # Modules support
