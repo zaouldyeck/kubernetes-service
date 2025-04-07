@@ -15,6 +15,7 @@ import (
 	"github.com/zaouldyeck/kubernetes-service/apis/services/api/debug"
 
 	"github.com/ardanlabs/conf/v3"
+	"github.com/zaouldyeck/kubernetes-service/apis/services/sales/mux"
 	"github.com/zaouldyeck/kubernetes-service/foundation/logger"
 )
 
@@ -118,7 +119,7 @@ func run(ctx context.Context, log *logger.Logger) error {
 
 	api := http.Server{
 		Addr:         cfg.Web.APIHost,
-		Handler:      nil,
+		Handler:      mux.WebAPI(),
 		ReadTimeout:  cfg.Web.ReadTimeout,
 		WriteTimeout: cfg.Web.WriteTimeout,
 		IdleTimeout:  cfg.Web.IdleTimeout,
