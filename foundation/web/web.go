@@ -27,7 +27,7 @@ func NewApp(shutdown chan os.Signal) *App {
 
 // HandleFunc sets handler function for a given HTTP method and path for the servemux.
 func (a *App) HandleFunc(pattern string, handler Handler) {
-	h := func(http.ResponseWriter, *http.Request) {
+	h := func(w http.ResponseWriter, r *http.Request) {
 
 		// PUT ANY CODE WE WANT HERE
 
